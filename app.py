@@ -1,5 +1,6 @@
 import pandas as pd
 from flask import Flask, request
+from flask_cors import CORS
 import pickle
 import json
 import numpy as np
@@ -16,6 +17,7 @@ cosine_sim_corpus = np.concatenate((splitted_arrs_0, splitted_arrs_1, splitted_a
 
 # app
 app = Flask(__name__)
+CORS(app)
 
 # routes
 @app.route('/', methods=['GET','POST'])
