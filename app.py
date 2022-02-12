@@ -2,12 +2,17 @@ import pandas as pd
 from flask import Flask, request
 import pickle
 import json
+import numpy as np
 
 # load model
-indices = pickle.load(open('book_indices.pkl','rb'))
-cosine_sim_corpus = pickle.load(open('book_similarity.pkl','rb'))
-book_img = pickle.load(open('book_images.pkl','rb'))
-titles = pickle.load(open('book_title_array.pkl','rb'))
+indices = pickle.load(open('book_indices_new.pkl','rb'))
+splitted_arrs_0 = pickle.load(open('book_similarity_new1.pkl','rb'))
+splitted_arrs_1 = pickle.load(open('book_similarity_new2.pkl','rb'))
+splitted_arrs_2 = pickle.load(open('book_similarity_new3.pkl','rb'))
+book_img = pickle.load(open('book_images_new.pkl','rb'))
+titles = pickle.load(open('book_title_array_new.pkl','rb'))
+
+cosine_sim_corpus = np.concatenate((splitted_arrs_0, splitted_arrs_1, splitted_arrs_2))
 
 # app
 app = Flask(__name__)
