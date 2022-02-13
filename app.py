@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 import pickle
 import json
@@ -50,7 +50,9 @@ def predict():
        'publication_year': publication_year
        }
 
-    resultjson = json.dumps(result)
+    # resultjson = json.dumps(result)
+    resultjson = jsonify(result)
+    resultjson.headers.add("Access-Control-Allow-Origin", "*")
 
 
 
