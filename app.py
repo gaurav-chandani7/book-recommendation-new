@@ -1,6 +1,6 @@
 import pandas as pd
 from flask import Flask, request
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import pickle
 import json
 import numpy as np
@@ -18,9 +18,11 @@ cosine_sim_corpus = np.concatenate((splitted_arrs_0, splitted_arrs_1, splitted_a
 # app
 app = Flask(__name__)
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # routes
 @app.route('/', methods=['GET','POST'])
+@cross_origin()
 
 def predict():
     # get data
