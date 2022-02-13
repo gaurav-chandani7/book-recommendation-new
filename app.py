@@ -51,7 +51,7 @@ def predict():
 
     # resultjson = json.dumps(result)
     resultjson = jsonify(result)
-    resultjson.headers.add("Access-Control-Allow-Origin", "*")
+    # resultjson.headers.add("Access-Control-Allow-Origin", "*")
 
 
 
