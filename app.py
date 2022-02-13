@@ -17,8 +17,7 @@ cosine_sim_corpus = np.concatenate((splitted_arrs_0, splitted_arrs_1, splitted_a
 
 # app
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
-app.config['CORS_HEADERS'] = 'Content-Type'
+CORS(app)
 
 # routes
 @app.route('/', methods=['GET','POST'])
