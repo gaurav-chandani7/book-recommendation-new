@@ -17,7 +17,7 @@ cosine_sim_corpus = np.concatenate((splitted_arrs_0, splitted_arrs_1, splitted_a
 
 # app
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 # routes
@@ -55,9 +55,9 @@ def predict():
 
 
     #return result
-
+    
     # send back to browser
-
+    
     return resultjson
 
 if __name__ == '__main__':
